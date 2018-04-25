@@ -47,8 +47,20 @@ public class PruebasPersona {
         telefono.setTelefono("954837770");
         telefono.setPersona(persona);
 
+        final Telefono telefono1 = new Telefono();
+        telefono1.setTelefono("954837771");
+        telefono1.setPersona(persona);
+
+        final Telefono telefono2 = new Telefono();
+        telefono2.setTelefono("954837772");
+        telefono2.setPersona(persona);
+
+        final Telefono telefono3 = new Telefono();
+        telefono3.setTelefono("954837773");
+        telefono3.setPersona(persona);
+
         persona.setDirecciones(Arrays.asList(direccion1, direccion2));
-        persona.setTelefonos(new HashSet<>(Arrays.asList(telefono)));
+        persona.setTelefonos(new TreeSet<>(Arrays.asList(telefono, telefono1, telefono2, telefono3)));
 
         return RepositorioPersona.crearPersona(persona);
     }
@@ -80,7 +92,7 @@ public class PruebasPersona {
         // System.out.println(persona.getEdad());
         // System.out.println(persona.getDni());
         // System.out.println(persona.getTelefonos());
-        System.out.println(persona.getGenero().getCodigo());
+        // System.out.println(persona.getGenero().getCodigo());
         persona.getTelefonos().stream().map(Telefono::getTelefono).forEach(System.out::println);
     }
 

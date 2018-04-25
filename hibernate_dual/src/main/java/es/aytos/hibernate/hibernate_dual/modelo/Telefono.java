@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "A_TEL")
-public class Telefono implements Serializable {
+public class Telefono implements Serializable, Comparable<Telefono> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mi-secuencia")
@@ -45,5 +45,10 @@ public class Telefono implements Serializable {
 
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+
+    @Override
+    public int compareTo(Telefono o) {
+        return o.getTelefono().compareTo(this.getTelefono());
     }
 }

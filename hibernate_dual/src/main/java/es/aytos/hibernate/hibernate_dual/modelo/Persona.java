@@ -3,7 +3,13 @@ package es.aytos.hibernate.hibernate_dual.modelo;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.*;
+
+import es.aytos.hibernate.hibernate_dual.comparadores.*;
 import es.aytos.hibernate.hibernate_dual.conversores.*;
 
 @Entity
@@ -30,7 +36,8 @@ public class Persona extends Usuario {
     private List<Direccion> direcciones;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "persona", fetch = FetchType.EAGER)
-    private Set<Telefono> telefonos;
+    @SortComparator(ComparadorTelefonos.class)
+    private SortedSet<Telefono> telefonos;
 
     private DetallePersona detallePersona;
 
@@ -92,11 +99,11 @@ public class Persona extends Usuario {
         this.direcciones = direcciones;
     }
 
-    public Set<Telefono> getTelefonos() {
+    public SortedSet<Telefono> getTelefonos() {
         return telefonos;
     }
 
-    public void setTelefonos(Set<Telefono> telefonos) {
+    public void setTelefonos(SortedSet<Telefono> telefonos) {
         this.telefonos = telefonos;
     }
 

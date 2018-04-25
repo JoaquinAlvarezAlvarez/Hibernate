@@ -21,7 +21,7 @@
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>
         <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
 
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="es.aytos.hibernate.hibernate_dual.modelo.Persona"/>
         <mapping class="es.aytos.hibernate.hibernate_dual.modelo.Cliente"/>
